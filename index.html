@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#13233F">
+<meta name="robots" content="noindex">
+<title>Found my bag?</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧳</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #13233F;
+    --tag: #FFD23F;
+    --strap: #C9D2E3;
+    --wa: #1FB85A;
+    --radius: 28px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100dvh;
+    background: var(--navy);
+    color: var(--navy);
+    font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: env(safe-area-inset-top, 0px) 16px env(safe-area-inset-bottom, 0px);
+    overflow-x: hidden;
+  }
+
+  .swing {
+    width: min(100%, 380px);
+    transform-origin: 50% 0;
+    animation: swing 2.6s cubic-bezier(.3, .6, .4, 1) both;
+  }
+  @keyframes swing {
+    0%   { transform: rotate(8deg); }
+    25%  { transform: rotate(-5deg); }
+    50%  { transform: rotate(3deg); }
+    75%  { transform: rotate(-1.2deg); }
+    100% { transform: rotate(0); }
+  }
+
+  .strap {
+    width: 14px;
+    height: 72px;
+    margin: 0 auto -30px;
+    background: var(--strap);
+    border-radius: 7px 7px 0 0;
+    position: relative;
+    z-index: 0;
+  }
+
+  .tag {
+    position: relative;
+    z-index: 1;
+    background: var(--tag);
+    border-radius: var(--radius);
+    padding: 52px 22px 22px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+  }
+  .tag::before {            /* punched hole */
+    content: "";
+    position: absolute;
+    top: 14px; left: 50%;
+    width: 22px; height: 22px;
+    margin-left: -11px;
+    background: var(--navy);
+    border-radius: 50%;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, .5);
+  }
+
+  .case { display: block; width: 96px; height: auto; margin: 6px auto 14px; }
+
+  h1 {
+    margin: 0 0 4px;
+    text-align: center;
+    font-size: 2.1rem;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -.02em;
+  }
+  .sub { margin: 0 0 22px; text-align: center; font-weight: 500; opacity: .75; }
+
+  .row { display: flex; gap: 10px; margin-bottom: 10px; }
+  .row a {
+    display: flex; align-items: center; justify-content: center;
+    height: 62px;
+    border-radius: 20px;
+    text-decoration: none;
+    font: inherit;
+    transition: transform .12s ease;
+  }
+  .row a:active { transform: scale(.97); }
+  .row a:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+
+  .call {
+    flex: 1;
+    gap: 12px;
+    background: var(--navy);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: .01em;
+    font-variant-numeric: tabular-nums;
+  }
+  .wa { width: 62px; background: var(--wa); color: #fff; }
+  .call svg, .wa svg { width: 24px; height: 24px; flex: none; }
+
+  .barcode {
+    height: 44px;
+    margin-top: 22px;
+    border-radius: 6px;
+    background:
+      repeating-linear-gradient(90deg,
+        var(--navy) 0 3px, transparent 3px 5px,
+        var(--navy) 5px 6px, transparent 6px 10px,
+        var(--navy) 10px 15px, transparent 15px 17px,
+        var(--navy) 17px 18px, transparent 18px 22px);
+    opacity: .9;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .swing { animation: none; }
+    .row a { transition: none; }
+  }
+</style>
+</head>
+<body>
+  <main class="swing">
+    <div class="strap" aria-hidden="true"></div>
+    <section class="tag">
+      <svg class="case" viewBox="0 0 96 96" fill="none" aria-hidden="true">
+        <path d="M34 26v-6a6 6 0 0 1 6-6h16a6 6 0 0 1 6 6v6" stroke="#13233F" stroke-width="5" stroke-linecap="round"/>
+        <rect x="10" y="26" width="76" height="52" rx="12" fill="#13233F"/>
+        <rect x="28" y="26" width="6" height="52" fill="#FFD23F" opacity=".9"/>
+        <rect x="62" y="26" width="6" height="52" fill="#FFD23F" opacity=".9"/>
+        <circle cx="26" cy="84" r="4" fill="#13233F"/>
+        <circle cx="70" cy="84" r="4" fill="#13233F"/>
+      </svg>
+
+      <h1>Found my bag?</h1>
+      <p class="sub">Call or message. Thank you!</p>
+
+      <div class="row">
+        <a class="call" href="tel:+919481555807" aria-label="Call +91 94815 55807">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+          <span>+91 94815 55807</span>
+        </a>
+        <a class="wa" href="https://wa.me/919481555807?text=Hi%2C%20I%20found%20your%20bag." aria-label="WhatsApp +91 94815 55807" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.45-.72-1.7-.8-.22-.08-.4-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.28.18-.53.06a6.7 6.7 0 0 1-3.3-2.9c-.25-.42.25-.4.72-1.33.08-.16.04-.3-.02-.42-.06-.12-.56-1.35-.76-1.85-.2-.48-.4-.42-.56-.42h-.47c-.16 0-.42.06-.64.3-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.1 3.65 1.5.65 2.1.7 2.86.6.46-.07 1.45-.6 1.65-1.17.2-.57.2-1.06.14-1.17-.06-.1-.22-.16-.47-.28z"/></svg>
+        </a>
+      </div>
+
+      <div class="row">
+        <a class="call" href="tel:+919448291516" aria-label="Call +91 94482 91516">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+          <span>+91 94482 91516</span>
+        </a>
+        <a class="wa" href="https://wa.me/919448291516?text=Hi%2C%20I%20found%20your%20bag." aria-label="WhatsApp +91 94482 91516" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.45-.72-1.7-.8-.22-.08-.4-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.28.18-.53.06a6.7 6.7 0 0 1-3.3-2.9c-.25-.42.25-.4.72-1.33.08-.16.04-.3-.02-.42-.06-.12-.56-1.35-.76-1.85-.2-.48-.4-.42-.56-.42h-.47c-.16 0-.42.06-.64.3-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.1 3.65 1.5.65 2.1.7 2.86.6.46-.07 1.45-.6 1.65-1.17.2-.57.2-1.06.14-1.17-.06-.1-.22-.16-.47-.28z"/></svg>
+        </a>
+      </div>
+
+      <div class="barcode" aria-hidden="true"></div>
+    </section>
+  </main>
+</body>
+</html>
